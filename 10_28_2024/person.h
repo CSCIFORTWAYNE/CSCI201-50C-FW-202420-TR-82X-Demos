@@ -86,29 +86,27 @@ private:
 
 class student : public person
 {
-    student(double GPA, std::string major, course schedule, int height, int weight);
+    private:
+        bool vaccinationStatusUpToDate;        //social determinents of health
+        bool stableHomeAddress;
+    
+public:
+    student(double GPA, std::string major, course schedule, bool vaccinationStatusUpToDate, bool stableHomeAddress);
     double GPA;
     std::string major;
     course schedule;
-private:
-    int height;        //in cm
-    int weight;        //in kg
 
-    int getHeight(){
-        return height;}
+    int getVaccinationStatusUpToDate(){
+        return VaccinationStatusUpToDate;}
 
-    int getWeight(){
-        return weight;}
+    int getstableHomeAddresst(){
+        return stableHomeAddress;}
 
-    void setHeight(){
-        this->height = height;}
+    void setVaccinationStatusUpToDate(){
+        this->VaccinationStatusUpToDate = VaccinationStatusUpToDate;}
 
-    void setWeight(){
-        this->weight = weight;}
-
-    double calculateBMI(){
-        BMI = weight / (height/100)(height/100);
-        return BMI;}
+    void setstableHomeAddress(){
+        this->stableHomeAddress = stableHomeAddress;}
 };
 
 class course
