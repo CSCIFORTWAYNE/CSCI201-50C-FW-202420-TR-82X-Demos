@@ -86,9 +86,29 @@ private:
 
 class student : public person
 {
+    student(double GPA, std::string major, course schedule, int height, int weight);
     double GPA;
     std::string major;
     course schedule;
+private:
+    int height;        //in cm
+    int weight;        //in kg
+
+    int getHeight(){
+        return height;}
+
+    int getWeight(){
+        return weight;}
+
+    void setHeight(){
+        this->height = height;}
+
+    void setWeight(){
+        this->weight = weight;}
+
+    double calculateBMI(){
+        BMI = weight / (height/100)(height/100);
+        return BMI;}
 };
 
 class course
