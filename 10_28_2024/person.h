@@ -86,9 +86,27 @@ private:
 
 class student : public person
 {
+    private:
+        bool vaccinationStatusUpToDate;        //social determinents of health
+        bool stableHomeAddress;
+    
+public:
+    student(double GPA, std::string major, course schedule, bool vaccinationStatusUpToDate, bool stableHomeAddress);
     double GPA;
     std::string major;
     course schedule;
+
+    int getVaccinationStatusUpToDate(){
+        return VaccinationStatusUpToDate;}
+
+    int getstableHomeAddresst(){
+        return stableHomeAddress;}
+
+    void setVaccinationStatusUpToDate(){
+        this->VaccinationStatusUpToDate = VaccinationStatusUpToDate;}
+
+    void setstableHomeAddress(){
+        this->stableHomeAddress = stableHomeAddress;}
 };
 
 class course
