@@ -13,4 +13,15 @@ public:
     invalid_Hour(std::string);
 };
 
+class invalid_Min : public std::invalid_argument
+{
+public:
+    invalid_Min(std::string);
+};
+
+class invalid_Sec : public std::invalid_argument
+{
+public:
+    invalid_Sec(std::string);
+};
 #endif
