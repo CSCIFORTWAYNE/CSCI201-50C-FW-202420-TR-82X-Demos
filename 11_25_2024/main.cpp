@@ -79,6 +79,18 @@ int main()
             validHr = false;
             continue;
         }
+        catch (invalid_Min e)
+        {
+            std::cout << e.what() << std::endl;
+            validMin = false;
+            continue;
+        }
+        catch (invalid_Sec e)
+        {
+            std::cout << e.what() << std::endl;
+            validSec = false;
+            continue;
+        }
         /* catch (...)
         {
             std::cout << "An error has occured. Program will exit." << std::endl;
