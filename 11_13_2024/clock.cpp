@@ -250,93 +250,100 @@ bool clockType::operator!=(const clockType &rightHandClock) const
 }
 bool clockType::operator>(const clockType &rightHandClock) const
 {
-
     int cmpH;
     int cmpOH;
-    if (this->format == TWELVE)
-    {
-        if (this->timeOfDay == AM && hr != 12)
-        {
-            cmpH = hr;
-        }
-        else if (this->timeOfDay == AM && hr == 12)
-        {
-            cmpH = 0;
-        }
-        else if (hr == 12)
-        {
-            cmpH = hr;
-        }
+    if (this->format == TWELVE){
+        if (this->timeOfDay == AM && hr != 12) {
+            cmpH = hr;}
+        else if (this->timeOfDay == AM && hr == 12){
+            cmpH = 0;}
+        else if (hr == 12){
+            cmpH = hr;}
         else
-        {
-            cmpH = hr + 12;
-        }
+        {cmpH = hr + 12;}
     }
-    else
-    {
-        cmpH = hr;
-    }
-    if (rightHandClock.format == TWELVE)
-    {
-        if (rightHandClock.timeOfDay == AM && rightHandClock.hr != 12)
-        {
-            cmpOH = rightHandClock.hr;
-        }
+    else{
+    cmpH = hr;}
+    if (rightHandClock.format == TWELVE){
+        if (rightHandClock.timeOfDay == AM && rightHandClock.hr != 12){
+            cmpOH = rightHandClock.hr;}
         else if (rightHandClock.timeOfDay == AM && rightHandClock.hr == 12)
-        {
-            cmpOH = 0;
-        }
+        {cmpOH = 0;}
         else if (rightHandClock.hr == 12)
-        {
-            cmpOH = rightHandClock.hr;
-        }
+        {cmpOH = rightHandClock.hr;}
         else
-        {
-            cmpOH = rightHandClock.hr + 12;
-        }
+        {cmpOH = rightHandClock.hr + 12;}
     }
-    else
-    {
-        cmpOH = rightHandClock.hr;
-    }
+    else {
+    cmpOH = rightHandClock.hr;}
     if (cmpH > cmpOH)
-    {
-        return true;
+    {return true;}
+    else if (cmpH == cmpOH){
+    if (this->min > rightHandClock.min){
+        return true;}
+    else if (this->min == rightHandClock.min){
+        if (this->sec > rightHandClock.sec){
+            return true;}
+        else{
+        return false;}
     }
-    else if (cmpH == cmpOH)
-    {
-        if (this->min > rightHandClock.min)
-        {
-            return true;
-        }
-        else if (this->min == rightHandClock.min)
-        {
-            if (this->sec > rightHandClock.sec)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        else{
+        return false;}
     }
-    else
-    {
-        return false;
-    }
+    else{
+        return false;}
 }
 
 bool clockType::operator<(const clockType &rightHandClock) const
 {
+    int cmpH;
+    int cmpOH;
+    if (this->format == TWELVE){
+        if (this->timeOfDay == AM && hr != 12) {
+            cmpH = hr;}
+        else if (this->timeOfDay == AM && hr == 12){
+            cmpH = 0;}
+        else if (hr == 12){
+            cmpH = hr;}
+        else
+        {cmpH = hr + 12;}
+    }
+    else
+    {cmpH = hr;}
+    if (rightHandClock.format == TWELVE){
+        if (rightHandClock.timeOfDay == AM && rightHandClock.hr != 12){
+            cmpOH = rightHandClock.hr;}
+        else if (rightHandClock.timeOfDay == AM && rightHandClock.hr == 12)
+        {cmpOH = 0;}
+        else if (rightHandClock.hr == 12)
+        {cmpOH = rightHandClock.hr;}
+        else
+        {cmpOH = rightHandClock.hr + 12;}
+    }
+    else {
+    cmpOH = rightHandClock.hr;}
+    if (cmpH < cmpOH)
+    {return true;}
+    else if (cmpH == cmpOH){
+    if (this->min < rightHandClock.min){            //basically just flipping the signs.
+        return true;}
+    else if (this->min == rightHandClock.min){
+        if (this->sec < rightHandClock.sec){
+            return true;}
+        else{
+        return false;}
+    }
+        else{
+        return false;}
+    }
+    else{
+        return false;}
 }
 bool clockType::operator>=(const clockType &rightHandClock) const
 {
+    return !(*this < rightHandClock);                //< is the inverse of >=
 }
 bool clockType::operator<=(const clockType &rightHandClock) const
 {
+    return !(*this > rightHandClock);                //> is the inverse of <=
 }
