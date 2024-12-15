@@ -78,8 +78,20 @@ void clockType::setTime(int h, int m, int s, std::string a)
         else
             hr = h;
     }
-    min = m % 60;
-    sec = s % 60;
+
+    if (m > 59 || m < 00){
+        throw invalid_Min("The minutes must be between 00 and 59.");
+    else{
+        min = m;
+            }
+
+    if (s > 59 || s < 00){
+        throw invalid_Sec("The seconds must be between 00 and 59.");
+    else{
+        sec = s;
+    }
+    //min = m % 60;
+    //sec = s % 60;
 }
 
 std::string clockType::tostring() const
